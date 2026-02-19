@@ -14,14 +14,20 @@
   },
   "scripts": {
     "build": "tsup",
+    "build:demo": "tsup src/piximps/browser.ts --format iife --global-name Piximps --outDir docs --no-splitting",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
   },
-  "keywords": [],
-  "author": "",
+  "homepage": "https://kamilrybacki.github.io/Piximps/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamilrybacki/Piximps.git"
+  },
+  "keywords": ["avatar", "pixel-art", "procedural-generation", "svg", "identicon"],
+  "author": "Kamil Rybacki",
   "license": "ISC",
-  "description": "",
+  "description": "Deterministic demonic pixel-art avatar generator",
   "dependencies": {
     "pngjs": "^7.0.0"
   },

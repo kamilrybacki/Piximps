@@ -2,4 +2,8 @@ node_modules/
 dist/
 coverage/
 docs/plans/
+docs/*.d.ts
+docs/*.map
+!docs/
 .claude/
+.serena/
