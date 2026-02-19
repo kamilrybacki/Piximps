@@ -1,0 +1,33 @@
+import { CellType as C } from '@piximps/domain/types'
+import { Template } from '@piximps/domain/template'
+import { type TemplateRegistry } from './types'
+
+const _ = C.AlwaysEmpty
+const F = C.AlwaysFilled
+
+const singleEye8 = new Template({
+  grid: [[_, _, _, F]],
+  anchors: {},
+  compatibleWith: ['single-eye'],
+  symmetric: true,
+})
+
+const doubleEye8 = new Template({
+  grid: [[_, F, _, _]],
+  anchors: {},
+  compatibleWith: ['double-eye'],
+  symmetric: true,
+})
+
+const tripleEye8 = new Template({
+  grid: [[_, F, _, F]],
+  anchors: {},
+  compatibleWith: ['triple-eye'],
+  symmetric: true,
+})
+
+export const eyeTemplates: TemplateRegistry = {
+  8: [singleEye8, doubleEye8, tripleEye8],
+  16: [],
+  32: [],
+}
