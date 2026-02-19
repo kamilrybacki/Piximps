@@ -307,6 +307,7 @@
         seeds = Array.from({ length: count }, () => randomSeed());
       }
 
+      gallery.innerHTML = '';
       btnGenerate.disabled = true;
       status.textContent = 'Summoning...';
       try {
