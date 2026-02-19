@@ -35,8 +35,52 @@ const tallHorns8 = new Template({
   symmetric: true,
 })
 
+const curvedHorns16 = new Template({
+  grid: [
+    [F, _, _, _],
+    [_, F, _, _],
+    [_, _, F, _],
+  ],
+  anchors: {},
+  compatibleWith: ['wide-horns'],
+  symmetric: true,
+})
+
+const straightHorns16 = new Template({
+  grid: [
+    [_, F, _],
+    [_, F, _],
+    [_, F, _],
+  ],
+  anchors: {},
+  compatibleWith: ['tall-horns'],
+  symmetric: true,
+})
+
+const branchingHorns16 = new Template({
+  grid: [
+    [F, _, _, _, _],
+    [_, F, _, _, _],
+    [_, F, F, _, _],
+    [_, _, _, F, _],
+  ],
+  anchors: {},
+  compatibleWith: ['wide-horns'],
+  symmetric: true,
+})
+
+const stubbyHorns16 = new Template({
+  grid: [
+    [F, _, _],
+    [_, F, _],
+  ],
+  anchors: {},
+  compatibleWith: ['small-horns'],
+  symmetric: true,
+})
+
 export const hornTemplates: TemplateRegistry = {
   8: [wideHorns8, smallHorns8, tallHorns8],
-  16: [],
+  16: [curvedHorns16, straightHorns16, branchingHorns16, stubbyHorns16],
   32: [],
 }

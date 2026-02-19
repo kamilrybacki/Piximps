@@ -67,8 +67,120 @@ const round8 = new Template({
   symmetric: true,
 })
 
+const stocky16 = new Template({
+  grid: [
+    [_, _, _, _, _, _, _, _],
+    [_, _, _, _, _, _, _, _],
+    [_, _, _, _, _, _, _, _],
+    [_, _, _, _, F, F, F, P],
+    [_, _, _, F, F, B, B, B],
+    [_, _, _, F, B, B, B, B],
+    [_, _, _, F, B, B, B, B],
+    [_, _, _, F, F, B, F, F],
+    [_, _, _, _, F, B, F, _],
+    [_, _, P, F, F, B, B, F],
+    [_, _, F, F, B, B, B, F],
+    [_, _, F, F, B, B, B, F],
+    [_, _, _, F, F, B, F, F],
+    [_, _, _, _, F, F, F, _],
+    [_, _, _, _, F, _, F, _],
+    [_, _, _, P, F, _, F, _],
+  ],
+  anchors: {
+    horns: { row: 3, columnStart: 4, columnEnd: 7 },
+    eyes: { row: 5, columnStart: 3, columnEnd: 7 },
+    mouth: { row: 7, columnStart: 4, columnEnd: 7 },
+  },
+  compatibleWith: ['wide-horns', 'small-horns', 'single-eye', 'double-eye', 'fangs', 'grin'],
+  symmetric: true,
+})
+
+const lanky16 = new Template({
+  grid: [
+    [_, _, _, _, _, _, _, _],
+    [_, _, _, _, _, _, _, _],
+    [_, _, _, _, _, F, F, F],
+    [_, _, _, _, F, B, B, B],
+    [_, _, _, _, F, B, B, B],
+    [_, _, _, _, F, B, B, B],
+    [_, _, _, _, _, F, F, F],
+    [_, _, _, _, _, F, B, F],
+    [_, _, _, _, F, F, B, F],
+    [_, _, _, _, F, B, B, F],
+    [_, _, _, _, F, B, B, F],
+    [_, _, _, _, F, B, B, P],
+    [_, _, _, _, F, F, F, _],
+    [_, _, _, _, _, F, _, _],
+    [_, _, _, _, _, F, _, _],
+    [_, _, _, _, _, F, _, _],
+  ],
+  anchors: {
+    horns: { row: 2, columnStart: 5, columnEnd: 7 },
+    eyes: { row: 4, columnStart: 4, columnEnd: 7 },
+    mouth: { row: 5, columnStart: 5, columnEnd: 7 },
+  },
+  compatibleWith: ['tall-horns', 'small-horns', 'single-eye', 'double-eye', 'fangs', 'smirk'],
+  symmetric: true,
+})
+
+const round16 = new Template({
+  grid: [
+    [_, _, _, _, _, _, _, _],
+    [_, _, _, _, _, _, _, _],
+    [_, _, _, _, _, F, F, F],
+    [_, _, _, _, F, B, B, B],
+    [_, _, _, F, B, B, B, B],
+    [_, _, _, F, B, B, B, B],
+    [_, _, F, F, B, B, B, B],
+    [_, _, F, B, B, B, B, B],
+    [_, F, F, B, B, B, B, B],
+    [_, F, B, B, B, B, B, B],
+    [_, F, F, B, B, B, B, B],
+    [_, _, F, F, B, B, B, B],
+    [_, _, _, F, F, B, B, F],
+    [_, _, _, _, F, F, F, _],
+    [_, _, _, _, _, F, F, _],
+    [_, _, _, _, P, F, F, _],
+  ],
+  anchors: {
+    horns: { row: 2, columnStart: 5, columnEnd: 7 },
+    eyes: { row: 4, columnStart: 3, columnEnd: 7 },
+    mouth: { row: 6, columnStart: 3, columnEnd: 7 },
+  },
+  compatibleWith: ['wide-horns', 'small-horns', 'triple-eye', 'double-eye', 'fangs', 'grin'],
+  symmetric: true,
+})
+
+const hunched16 = new Template({
+  grid: [
+    [_, _, _, _, _, _, _, _],
+    [_, _, _, _, _, _, _, _],
+    [_, _, _, _, _, _, _, _],
+    [_, _, _, _, _, F, F, P],
+    [_, _, _, _, F, B, B, B],
+    [_, _, _, _, F, B, B, B],
+    [_, _, _, _, F, B, F, F],
+    [_, _, _, F, F, B, F, _],
+    [_, _, F, F, B, B, B, F],
+    [_, P, F, B, B, B, B, F],
+    [_, _, F, F, B, B, B, F],
+    [_, _, F, F, B, B, B, F],
+    [_, _, _, F, F, B, B, F],
+    [_, _, _, F, F, F, F, _],
+    [_, _, _, F, _, _, F, _],
+    [_, _, _, F, _, _, F, _],
+  ],
+  anchors: {
+    horns: { row: 3, columnStart: 5, columnEnd: 7 },
+    eyes: { row: 5, columnStart: 4, columnEnd: 7 },
+    mouth: { row: 6, columnStart: 5, columnEnd: 7 },
+  },
+  compatibleWith: ['wide-horns', 'tall-horns', 'single-eye', 'double-eye', 'fangs', 'smirk'],
+  symmetric: true,
+})
+
 export const bodyTemplates: TemplateRegistry = {
   8: [stocky8, lanky8, round8],
-  16: [],
+  16: [stocky16, lanky16, round16, hunched16],
   32: [],
 }
