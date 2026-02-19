@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "tsup",
-    "build:demo": "tsup src/piximps/browser.ts --format iife --global-name Piximps --outDir docs --no-splitting",
+    "build:demo": "tsup src/piximps/browser.ts --format iife --global-name Piximps --outDir docs --no-splitting --no-clean",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
