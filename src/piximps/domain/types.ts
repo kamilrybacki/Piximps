@@ -19,8 +19,6 @@ export type AnchorPoint = {
 
 export type TemplateGrid = CellType[][]
 
-export type TraitCategory = 'body' | 'horns' | 'eyes' | 'mouth' | 'accessories'
-
 export enum RenderedCellType {
   Empty = 0,
   Body = 1,

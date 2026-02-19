@@ -19,14 +19,4 @@ export class ColorPalette {
     this.glow = config.glow
     this.secondary = config.secondary
   }
-
-  darkenColor(color: RgbaColor, factor: number): RgbaColor {
-    const multiplier = 1 - factor
-    return [
-      Math.round(color[0] * multiplier),
-      Math.round(color[1] * multiplier),
-      Math.round(color[2] * multiplier),
-      color[3],
-    ]
-  }
 }

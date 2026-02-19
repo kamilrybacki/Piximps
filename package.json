@@ -14,10 +14,11 @@
   },
   "scripts": {
     "build": "tsup",
-    "build:demo": "tsup src/piximps/browser.ts --format iife --global-name Piximps --outDir docs --no-splitting --no-clean",
+    "build:demo": "tsup src/piximps/browser.ts --format iife --global-name Piximps --outDir docs --no-splitting --no-clean --no-sourcemap",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "npm test && npm run build"
   },
   "homepage": "https://kamilrybacki.github.io/Piximps/",
   "repository": {

@@ -9,7 +9,7 @@ import { Template } from '@piximps/domain/template'
 import { ColorPalette } from '@piximps/domain/color-palette'
 import { type SymmetryBreakSide } from '@piximps/domain/imp-traits'
 
-export interface ComposeLayersInput {
+interface ComposeLayersInput {
   gridSize: GridSize
   body: Template
   horns: Template | null

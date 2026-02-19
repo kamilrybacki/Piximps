@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
   <title>Piximps — Demonic Pixel Avatar Generator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -375,7 +377,16 @@
         const svg = await gen.generate(seed);
         const card = document.createElement('div');
         card.className = 'imp-card';
-        card.innerHTML = svg + '<div class="seed">' + seed + '</div>';
+
+        const svgContainer = document.createElement('div');
+        svgContainer.innerHTML = svg;
+        card.appendChild(svgContainer);
+
+        const seedLabel = document.createElement('div');
+        seedLabel.className = 'seed';
+        seedLabel.textContent = seed;
+        card.appendChild(seedLabel);
+
         fragment.appendChild(card);
       }
 
@@ -400,7 +411,7 @@
       try {
         await generateImps(seeds);
       } catch (e) {
-        status.textContent = 'Error: ' + e.message;
+        status.textContent = 'Error: generation failed. Check console for details.';
         console.error(e);
       }
       btnGenerate.disabled = false;
@@ -416,7 +427,7 @@
       try {
         await generateImps(seeds);
       } catch (e) {
-        status.textContent = 'Error: ' + e.message;
+        status.textContent = 'Error: generation failed. Check console for details.';
         console.error(e);
       }
       btnRandomize.disabled = false;

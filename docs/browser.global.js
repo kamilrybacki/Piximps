@@ -87,15 +87,6 @@ var Piximps = (() => {
       this.glow = config.glow;
       this.secondary = config.secondary;
     }
-    darkenColor(color, factor) {
-      const multiplier = 1 - factor;
-      return [
-        Math.round(color[0] * multiplier),
-        Math.round(color[1] * multiplier),
-        Math.round(color[2] * multiplier),
-        color[3]
-      ];
-    }
   };
 
   // src/piximps/services/palette-deriver.ts
@@ -154,9 +145,6 @@ var Piximps = (() => {
       this.accessoryIndices = config.accessoryIndices;
       this.probabilisticBits = config.probabilisticBits;
       this.symmetryBreakSide = config.symmetryBreakSide;
-    }
-    hasAccessory(type) {
-      return this.accessoryIndices[type] !== null;
     }
   };
 
@@ -1476,11 +1464,19 @@ var Piximps = (() => {
   }
 
   // src/piximps/browser.ts
-  var ImpGenerator = class _ImpGenerator {
+  var _ImpGenerator = class _ImpGenerator {
     constructor(options) {
+      const grid = options?.grid ?? 16;
+      const size = options?.size ?? 128;
+      if (!_ImpGenerator.VALID_GRID_SIZES.includes(grid)) {
+        throw new RangeError(`Grid size must be one of: ${_ImpGenerator.VALID_GRID_SIZES.join(", ")}`);
+      }
+      if (size <= 0 || size > _ImpGenerator.MAX_OUTPUT_SIZE) {
+        throw new RangeError(`Output size must be between 1 and ${_ImpGenerator.MAX_OUTPUT_SIZE}`);
+      }
       this.options = {
-        size: options?.size ?? 128,
-        grid: options?.grid ?? 16,
+        size,
+        grid,
         format: options?.format ?? "svg"
       };
     }
@@ -1536,6 +1532,8 @@ var Piximps = (() => {
       }
     }
   };
+  _ImpGenerator.VALID_GRID_SIZES = [8, 16, 32];
+  _ImpGenerator.MAX_OUTPUT_SIZE = 4096;
+  var ImpGenerator = _ImpGenerator;
   return __toCommonJS(browser_exports);
 })();
-//# sourceMappingURL=browser.global.js.map

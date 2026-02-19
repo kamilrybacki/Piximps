@@ -32,8 +32,4 @@ export class ImpTraits {
     this.probabilisticBits = config.probabilisticBits
     this.symmetryBreakSide = config.symmetryBreakSide
   }
-
-  hasAccessory(type: AccessoryType): boolean {
-    return this.accessoryIndices[type] !== null
-  }
 }

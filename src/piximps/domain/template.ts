@@ -1,4 +1,4 @@
-import { type CellType, type TemplateGrid, type AnchorPoint } from './types'
+import { type TemplateGrid, type AnchorPoint } from './types'
 
 export interface TemplateConfig {
   grid: TemplateGrid

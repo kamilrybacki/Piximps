@@ -1,4 +1,4 @@
-import { type GridSize, type OutputFormat } from './domain/types'
+import { type GridSize } from './domain/types'
 import { hashToByteSequence } from './services/hash-to-byte-sequence'
 import { derivePalette } from './services/palette-deriver'
 import { extractTraits } from './services/trait-extractor'
@@ -24,10 +24,23 @@ export interface ImpGeneratorOptions {
 export class ImpGenerator {
   private readonly options: ImpGeneratorOptions
 
+  private static readonly VALID_GRID_SIZES: GridSize[] = [8, 16, 32]
+  private static readonly MAX_OUTPUT_SIZE = 4096
+
   constructor(options?: Partial<ImpGeneratorOptions>) {
+    const grid = options?.grid ?? 16
+    const size = options?.size ?? 128
+
+    if (!ImpGenerator.VALID_GRID_SIZES.includes(grid)) {
+      throw new RangeError(`Grid size must be one of: ${ImpGenerator.VALID_GRID_SIZES.join(', ')}`)
+    }
+    if (size <= 0 || size > ImpGenerator.MAX_OUTPUT_SIZE) {
+      throw new RangeError(`Output size must be between 1 and ${ImpGenerator.MAX_OUTPUT_SIZE}`)
+    }
+
     this.options = {
-      size: options?.size ?? 128,
-      grid: options?.grid ?? 16,
+      size,
+      grid,
       format: options?.format ?? 'svg',
     }
   }

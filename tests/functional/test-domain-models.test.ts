@@ -111,20 +111,6 @@ describe('ColorPalette model', () => {
     expect(palette.secondary).toEqual([100, 80, 120, 255])
   })
 
-  it('darkenColor reduces brightness by a given factor', () => {
-    const palette = new ColorPalette({
-      skin: [200, 100, 50, 255],
-      accent: [100, 50, 25, 255],
-      glow: [255, 200, 0, 255],
-      secondary: [100, 80, 120, 255],
-    })
-
-    const darkened = palette.darkenColor(palette.skin, 0.4)
-    expect(darkened[0]).toBe(120)
-    expect(darkened[1]).toBe(60)
-    expect(darkened[2]).toBe(30)
-    expect(darkened[3]).toBe(255)
-  })
 })
 
 describe('ImpTraits model', () => {
@@ -147,19 +133,4 @@ describe('ImpTraits model', () => {
     expect(traits.probabilisticBits).toHaveLength(5)
   })
 
-  it('hasAccessory returns true only for non-null accessories', () => {
-    const traits = new ImpTraits({
-      bodyIndex: 0,
-      hornsIndex: 0,
-      eyesIndex: 0,
-      mouthIndex: 0,
-      accessoryIndices: { tail: 1, wings: null, weapon: null, hat: 2 },
-      probabilisticBits: [],
-      symmetryBreakSide: 'right',
-    })
-
-    expect(traits.hasAccessory('tail')).toBe(true)
-    expect(traits.hasAccessory('wings')).toBe(false)
-    expect(traits.hasAccessory('hat')).toBe(true)
-  })
 })
