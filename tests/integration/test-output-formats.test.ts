@@ -32,6 +32,12 @@ describe('output formats', () => {
     expect(result).toContain('<rect')
   })
 
+  it('generates valid output with 32x32 grid', async () => {
+    const result = await new ImpGenerator().grid(32).size(128).format('svg').generate('grid32-test')
+    expect(result).toContain('<svg')
+    expect(result).toContain('<rect')
+  })
+
   it('different sizes produce different buffer lengths', async () => {
     const small = await gen.size(8).format('buffer').generate('size-test') as Uint8Array
     const large = await gen.size(32).format('buffer').generate('size-test') as Uint8Array

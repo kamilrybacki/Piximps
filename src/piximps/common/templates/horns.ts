@@ -79,8 +79,74 @@ const stubbyHorns16 = new Template({
   symmetric: true,
 })
 
+const longCurved32 = new Template({
+  grid: [
+    [F, _, _, _, _, _, _, _],
+    [_, F, _, _, _, _, _, _],
+    [_, _, F, _, _, _, _, _],
+    [_, _, _, F, F, _, _, _],
+    [_, _, _, _, _, F, _, _],
+    [_, _, _, _, _, _, F, _],
+  ],
+  anchors: {},
+  compatibleWith: ['wide-horns'],
+  symmetric: true,
+})
+
+const shortStubby32 = new Template({
+  grid: [
+    [_, _, F, _, _],
+    [_, _, _, F, _],
+    [_, _, _, _, F],
+  ],
+  anchors: {},
+  compatibleWith: ['small-horns'],
+  symmetric: true,
+})
+
+const branching32 = new Template({
+  grid: [
+    [F, _, _, _, _, _, _, _],
+    [_, F, _, _, _, _, _, _],
+    [_, _, F, F, _, _, _, _],
+    [_, _, F, _, F, _, _, _],
+    [_, _, _, _, _, F, _, _],
+    [_, _, _, _, _, _, F, _],
+  ],
+  anchors: {},
+  compatibleWith: ['wide-horns'],
+  symmetric: true,
+})
+
+const ramStyle32 = new Template({
+  grid: [
+    [_, F, F, _, _, _],
+    [F, _, _, F, _, _],
+    [F, _, _, _, F, _],
+    [_, F, _, _, F, _],
+    [_, _, F, F, _, _],
+  ],
+  anchors: {},
+  compatibleWith: ['wide-horns'],
+  symmetric: true,
+})
+
+const singleSpike32 = new Template({
+  grid: [
+    [_, F, _],
+    [_, F, _],
+    [_, F, _],
+    [_, F, _],
+    [_, F, _],
+    [_, F, _],
+  ],
+  anchors: {},
+  compatibleWith: ['tall-horns'],
+  symmetric: true,
+})
+
 export const hornTemplates: TemplateRegistry = {
   8: [wideHorns8, smallHorns8, tallHorns8],
   16: [curvedHorns16, straightHorns16, branchingHorns16, stubbyHorns16],
-  32: [],
+  32: [longCurved32, shortStubby32, branching32, ramStyle32, singleSpike32],
 }

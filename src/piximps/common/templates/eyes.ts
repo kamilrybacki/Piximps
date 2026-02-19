@@ -56,8 +56,40 @@ const tripleEye16 = new Template({
   symmetric: true,
 })
 
+const singleEye32 = new Template({
+  grid: [
+    [_, _, _, _, _, _, F, F, F],
+    [_, _, _, _, _, _, F, F, F],
+    [_, _, _, _, _, _, F, F, F],
+  ],
+  anchors: {},
+  compatibleWith: ['single-eye'],
+  symmetric: true,
+})
+
+const doubleEye32 = new Template({
+  grid: [
+    [_, _, F, F, _, _, _, _],
+    [_, _, F, F, _, _, _, _],
+  ],
+  anchors: {},
+  compatibleWith: ['double-eye'],
+  symmetric: true,
+})
+
+const tripleEye32 = new Template({
+  grid: [
+    [_, _, F, F, _, _, F, F, F],
+    [_, _, F, F, _, _, F, F, F],
+    [_, _, _, _, _, _, _, _, _],
+  ],
+  anchors: {},
+  compatibleWith: ['triple-eye'],
+  symmetric: true,
+})
+
 export const eyeTemplates: TemplateRegistry = {
   8: [singleEye8, doubleEye8, tripleEye8],
   16: [singleEye16, doubleEye16, tripleEye16],
-  32: [],
+  32: [singleEye32, doubleEye32, tripleEye32],
 }
